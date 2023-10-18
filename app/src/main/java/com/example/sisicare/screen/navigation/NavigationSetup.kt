@@ -5,6 +5,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
@@ -25,21 +26,21 @@ import com.example.sisicare.screen.sanitary.SanitaryScreen
 import com.example.sisicare.screen.sanitary.SanitaryScreenViewModel
 
 @Composable
-fun NavigationGraph(navController: NavHostController) {
-    NavHost(navController, startDestination = BottomNavItem.Home.screen_route) {
-        composable(BottomNavItem.Home.screen_route) {
+fun NavigationGraph(navController: NavHostController, modifier: Modifier) {
+    NavHost(navController, startDestination = BottomNavItem.Home.route) {
+        composable(BottomNavItem.Home.route) {
             HomeScreen(viewModel = HomeScreenViewModel(), navController = navController )
         }
-        composable(BottomNavItem.Food.screen_route) {
+        composable(BottomNavItem.Food.route) {
             FoodScreen(viewModel = FoodScreenViewModel(), navController = navController )
         }
-        composable(BottomNavItem.Books.screen_route) {
+        composable(BottomNavItem.Books.route) {
             BookScreen(viewModel = BookScreenViewModel(), navController = navController )
         }
-        composable(BottomNavItem.Sanitary.screen_route) {
+        composable(BottomNavItem.Sanitary.route) {
             SanitaryScreen(viewModel = SanitaryScreenViewModel(), navController = navController)
         }
-        composable(BottomNavItem.Clothes.screen_route) {
+        composable(BottomNavItem.Clothes.route) {
             ClothScreen(viewModel = ClothScreenViewModel(), navController = navController)
         }
     }
@@ -77,12 +78,12 @@ fun BottomNavigation(navController: NavController) {
                 selectedContentColor = Color.DarkGray,
                 unselectedContentColor = Color.Black.copy(0.4f),
                 alwaysShowLabel = true,
-                selected = currentRoute == item.screen_route,
+                selected = currentRoute == item.route,
                 onClick = {
-                    navController.navigate(item.screen_route) {
+                    navController.navigate(item.route) {
 
-                        navController.graph.startDestinationRoute?.let { screen_route ->
-                            popUpTo(screen_route) {
+                        navController.graph.startDestinationRoute?.let { route ->
+                            popUpTo(route) {
                                 saveState = true
                             }
                         }

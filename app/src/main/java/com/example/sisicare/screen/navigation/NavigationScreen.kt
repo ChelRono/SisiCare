@@ -3,7 +3,7 @@ package com.example.sisicare.screen.navigation
 import com.example.sisicare.R
 
 
-sealed class BottomNavItem(var title:String, var icon:Int, var screen_route:String){
+sealed class BottomNavItem(var title:String, var icon:Int, var route:String){
 
     object Home : BottomNavItem("Home", R.drawable.home,"home")
     object Food: BottomNavItem("Food",R.drawable.food,"food")
