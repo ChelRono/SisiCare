@@ -1,9 +1,18 @@
 package com.example.sisicare.screen.navigation
 
+import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.sisicare.screen.books.BookScreen
 import com.example.sisicare.screen.books.BookScreenViewModel
 import com.example.sisicare.screen.clothes.ClothScreen
@@ -32,6 +41,56 @@ fun NavigationGraph(navController: NavHostController) {
         }
         composable(BottomNavItem.Clothes.screen_route) {
             ClothScreen(viewModel = ClothScreenViewModel(), navController = navController)
+        }
+    }
+}
+
+@Composable
+fun BottomNavigation(navController: NavController) {
+    val items = listOf(
+       BottomNavItem.Home,
+       BottomNavItem.Food,
+       BottomNavItem.Books,
+       BottomNavItem.Sanitary,
+       BottomNavItem.Clothes
+    )
+    androidx.compose.material.BottomNavigation(
+        backgroundColor = Color(0.03f, 0.63f, 0.46f, 1.0f),
+        contentColor = Color.Black
+    ) {
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val currentRoute = navBackStackEntry?.destination?.route
+        items.forEach { item ->
+            BottomNavigationItem(
+                icon = { Icon(
+                    painterResource(id = item.icon),
+                    contentDescription = item.title,
+                    tint = Color.White
+                ) },
+                label = {
+                    Text(
+                        text = item.title,
+                        fontSize = 16.sp,
+                        color = Color.White
+                    )
+                },
+                selectedContentColor = Color.DarkGray,
+                unselectedContentColor = Color.Black.copy(0.4f),
+                alwaysShowLabel = true,
+                selected = currentRoute == item.screen_route,
+                onClick = {
+                    navController.navigate(item.screen_route) {
+
+                        navController.graph.startDestinationRoute?.let { screen_route ->
+                            popUpTo(screen_route) {
+                                saveState = true
+                            }
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                }
+            )
         }
     }
 }
