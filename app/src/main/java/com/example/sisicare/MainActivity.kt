@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.sisicare.ui.theme.SisiCareTheme
 
@@ -32,7 +33,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainContent() {
     Text(
-        text = "Hello",
+        text = "Hellooo",
+        color = Color.Red
     )
 }
+
+
 
