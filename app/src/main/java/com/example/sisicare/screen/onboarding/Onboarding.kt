@@ -87,15 +87,6 @@ fun OnBoardingDetails(page: Page) {
                     .fillMaxSize(),
                 contentAlignment = Alignment.BottomStart
             ) {
-                Column {
-                    HorizontalPagerIndicator(
-                        pagerState = pagerState,
-                        modifier = Modifier
-                            .align(Alignment.CenterHorizontally)
-                            .padding(20.dp),
-                        activeColor = colorResource(R.color.purple_500),
-                        indicatorWidth = 10.dp
-                        )
                     Row(
                         modifier = Modifier
                             .fillMaxWidth(),
@@ -125,18 +116,31 @@ fun OnBoardingDetails(page: Page) {
             }
         }
     }
-}
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun OnBoardingPager() {
     val pagerState = rememberPagerState(pageCount = 3)
-    HorizontalPager(
-        state = pagerState,
-        modifier = Modifier
-            .fillMaxWidth()
-    ) { page ->
-        OnBoardingDetails(page = onboardPages[page])
+        HorizontalPager(
+            state = pagerState,
+            modifier = Modifier
+                .fillMaxWidth()
+        ) { page ->
+            OnBoardingDetails(page = onboardPages[page])
         }
+    Column(
+        verticalArrangement = Arrangement.Bottom,
+        modifier = Modifier
+            .padding(65.dp)
+    ) {
+        HorizontalPagerIndicator(
+            pagerState = pagerState,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(20.dp),
+            activeColor = colorResource(R.color.purple_500),
+            indicatorWidth = 10.dp
+        )
+    }
 }
 
