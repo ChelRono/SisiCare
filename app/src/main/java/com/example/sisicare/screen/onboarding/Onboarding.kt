@@ -16,6 +16,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,6 +33,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
+import kotlinx.coroutines.launch
 
 @Composable
 fun OnBoardingDetails(page: Page) {
@@ -78,54 +80,24 @@ fun OnBoardingDetails(page: Page) {
                         fontSize = 16.sp,
                         color = Color.Black
                     )
-                }
-            Box(
-                modifier = Modifier
-                    .padding(horizontal = 30.dp, vertical = 24.dp)
-                    .fillMaxSize(),
-                contentAlignment = Alignment.BottomStart
-            ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceEvenly
-                    ) {
-                        Button(
-                            modifier = Modifier
-                                .weight(0.4f),
-                            onClick = { },
-                            shape = RoundedCornerShape(10.dp),
-                            colors = ButtonDefaults.buttonColors(containerColor = Color.Gray)
-                        ) {
-                            Text(text = stringResource(id = R.string.SkipButton))
-                            }
-                        Button(
-                            modifier = Modifier
-                                .padding(start = 10.dp)
-                                .weight(0.8f),
-                            onClick = { },
-                            shape = RoundedCornerShape(10.dp),
-                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfb8500))
-                        ) {
-                            Text(text = stringResource(id = R.string.NextButton))
-                            }
-                    }
-                }
             }
         }
     }
+}
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun OnBoardingPager() {
     val pagerState = rememberPagerState(pageCount = 3)
-        HorizontalPager(
-            state = pagerState,
-            modifier = Modifier
-                .fillMaxWidth()
-        ) { page ->
-            OnBoardingDetails(page = onboardPages[page])
-        }
+    val scope = rememberCoroutineScope()
+
+    HorizontalPager(
+        state = pagerState,
+        modifier = Modifier
+            .fillMaxWidth()
+    ) { page ->
+        OnBoardingDetails(page = onboardPages[page])
+    }
     Column(
         verticalArrangement = Arrangement.Bottom,
         modifier = Modifier
@@ -140,5 +112,46 @@ fun OnBoardingPager() {
             indicatorWidth = 10.dp
         )
     }
+    Box(
+        modifier = Modifier
+            .padding(horizontal = 30.dp, vertical = 24.dp)
+            .fillMaxSize(),
+        contentAlignment = Alignment.BottomStart
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+            Button(
+                modifier = Modifier
+                    .weight(0.4f),
+                onClick = { },
+                shape = RoundedCornerShape(10.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Gray)
+            ) {
+                Text(text = stringResource(id = R.string.SkipButton))
+            }
+            Button(
+                modifier = Modifier
+                    .padding(start = 10.dp)
+                    .weight(0.8f),
+                onClick = {
+                    scope.launch {
+                        if (pagerState.currentPage == 3) {
+                            //Navigate to Login screen
+                        } else {
+                            pagerState.animateScrollToPage(
+                                page = pagerState.currentPage + 1
+                            )
+                        }
+                    }
+                },
+                shape = RoundedCornerShape(10.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfb8500))
+            ) {
+                Text(text = stringResource(id = R.string.NextButton))
+            }
+        }
+    }
 }
-
