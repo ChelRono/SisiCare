@@ -13,11 +13,11 @@ val onboardPages = listOf(
     Page(
         "Easy and Fast donation",
         "Pick an item you would like to donate give the pickup and drop off details and you are done in less than no time",
-        R.drawable.foodcan
+        R.drawable.cart
     ),
     Page(
         "Lets Get You Started",
         "You must be the change you wish to see in the world.",
-        R.drawable.globe
+        R.drawable.thanks
     )
 )

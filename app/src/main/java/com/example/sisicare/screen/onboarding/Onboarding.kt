@@ -123,34 +123,59 @@ fun OnBoardingPager() {
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            Button(
-                modifier = Modifier
-                    .weight(0.4f),
-                onClick = { },
-                shape = RoundedCornerShape(10.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Gray)
-            ) {
-                Text(text = stringResource(id = R.string.SkipButton))
-            }
-            Button(
-                modifier = Modifier
-                    .padding(start = 10.dp)
-                    .weight(0.8f),
-                onClick = {
-                    scope.launch {
-                        if (pagerState.currentPage == 3) {
-                            //Navigate to Login screen
-                        } else {
-                            pagerState.animateScrollToPage(
-                                page = pagerState.currentPage + 1
-                            )
+            if (pagerState.currentPage == 2) {
+                Button(
+                    modifier = Modifier
+                        .padding(start = 10.dp)
+                        .weight(0.8f),
+                    onClick = {
+                              // Navigate to Login Screen
+                    },
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfb8500))
+                ) {
+                    Text(text = "GET STARTED")
+                }
+            } else {
+                Button(
+                    modifier = Modifier
+                        .weight(0.4f),
+                    onClick = {
+                        scope.launch {
+                            if (pagerState.currentPage == 3) {
+                                //Navigate to Login screen
+                            } else {
+                                pagerState.animateScrollToPage(
+                                    page = pagerState.currentPage +2
+                                )
+                            }
                         }
-                    }
-                },
-                shape = RoundedCornerShape(10.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfb8500))
-            ) {
-                Text(text = stringResource(id = R.string.NextButton))
+                    },
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color.Gray)
+                ) {
+                    Text(text = stringResource(id = R.string.SkipButton))
+                }
+                Button(
+                    modifier = Modifier
+                        .padding(start = 10.dp)
+                        .weight(0.8f),
+                    onClick = {
+                        scope.launch {
+                            if (pagerState.currentPage == 3) {
+                                //Navigate to Login screen
+                            } else {
+                                pagerState.animateScrollToPage(
+                                    page = pagerState.currentPage + 1
+                                )
+                            }
+                        }
+                    },
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfb8500))
+                ) {
+                    Text(text = stringResource(id = R.string.NextButton))
+                }
             }
         }
     }
