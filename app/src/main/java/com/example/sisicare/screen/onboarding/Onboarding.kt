@@ -33,10 +33,8 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun OnBoardingDetails(page: Page) {
-    val pagerState = rememberPagerState(pageCount = 3)
     Column(
             modifier = Modifier
                 .fillMaxSize()
