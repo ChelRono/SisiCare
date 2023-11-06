@@ -19,6 +19,10 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -31,6 +35,9 @@ import com.example.sisicare.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignUpDetails() {
+    var username by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
     Column(
         modifier = Modifier
             .background(Color.White)
@@ -47,8 +54,10 @@ fun SignUpDetails() {
         Spacer(modifier = Modifier.height(15.dp))
 
         OutlinedTextField(
-            value = "User Name",
-            onValueChange = {},
+            value = username,
+            onValueChange = {newValue ->
+                username = newValue
+            },
             modifier = Modifier
                 .border(2.dp, Color.Gray, RoundedCornerShape(30.dp))
                 .fillMaxWidth(),
@@ -68,8 +77,10 @@ fun SignUpDetails() {
         Spacer(modifier = Modifier.height(15.dp))
 
         OutlinedTextField(
-            value = "Email",
-            onValueChange = {},
+            value = email,
+            onValueChange = {newValue ->
+                email = newValue
+            },
             modifier = Modifier
                 .border(2.dp, Color.Gray, RoundedCornerShape(30.dp))
                 .fillMaxWidth(),
@@ -89,8 +100,10 @@ fun SignUpDetails() {
         Spacer(modifier = Modifier.height(15.dp))
 
         OutlinedTextField(
-            value = "Password",
-            onValueChange = {},
+            value = password,
+            onValueChange = {newValue ->
+                password = newValue
+            },
             modifier = Modifier
                 .border(2.dp, Color.Gray, RoundedCornerShape(30.dp))
                 .fillMaxWidth(),
@@ -116,8 +129,10 @@ fun SignUpDetails() {
         Spacer(modifier = Modifier.height(15.dp))
 
         OutlinedTextField(
-            value = "Confirm Password",
-            onValueChange = {},
+            value = password,
+            onValueChange = {newValue ->
+                password = newValue
+            },
             modifier = Modifier
                 .border(2.dp, Color.Gray, RoundedCornerShape(30.dp))
                 .fillMaxWidth(),
