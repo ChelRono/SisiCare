@@ -12,11 +12,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -32,6 +34,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sisicare.R
@@ -44,6 +47,7 @@ fun SignUpDetails() {
     var password by remember { mutableStateOf("") }
     var confirmpassword by remember { mutableStateOf("") }
     var isChecked by remember { mutableStateOf(false) }
+    var showPassword by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -139,10 +143,22 @@ fun SignUpDetails() {
                 )
             },
             trailingIcon = {
-                Icon(
-                    painter = painterResource(id = R.drawable.eye_24),
-                    contentDescription = "eye"
-                )
+                if (showPassword) {
+                    IconButton(onClick = { showPassword = false }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.visibility_24),
+                            contentDescription = "hide_password"
+                        )
+                    }
+                } else {
+                    IconButton(
+                        onClick = { showPassword = true }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.visibility_off_24),
+                            contentDescription = "hide_password"
+                        )
+                    }
+                }
             },
             placeholder = {
                 Text(
@@ -150,7 +166,15 @@ fun SignUpDetails() {
                     color = Color.Gray
                 )
             },
-            visualTransformation =  PasswordVisualTransformation(),
+            visualTransformation = if (showPassword) {
+
+                VisualTransformation.None
+
+            } else {
+
+                PasswordVisualTransformation()
+
+            },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
         )
 
@@ -176,10 +200,22 @@ fun SignUpDetails() {
                 )
             },
             trailingIcon = {
-                Icon(
-                    painter = painterResource(id = R.drawable.eye_24),
-                    contentDescription = "eye"
-                )
+                if (showPassword) {
+                    IconButton(onClick = { showPassword = false }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.visibility_24),
+                            contentDescription = "hide_password"
+                        )
+                    }
+                } else {
+                    IconButton(
+                        onClick = { showPassword = true }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.visibility_off_24),
+                            contentDescription = "hide_password"
+                        )
+                    }
+                }
             },
             placeholder = {
                 Text(
@@ -187,7 +223,15 @@ fun SignUpDetails() {
                     color = Color.Gray
                 )
             },
-            visualTransformation =  PasswordVisualTransformation(),
+            visualTransformation = if (showPassword) {
+
+                VisualTransformation.None
+
+            } else {
+
+                PasswordVisualTransformation()
+
+            },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
         )
 
