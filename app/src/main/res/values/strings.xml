@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SisiCare</string>
+    <string name="forgotIntro">Forgot Password</string>
+    <string name="iconDesc">email icon</string>
+    <string name="placeholderTitle">Email</string>
+    <string name="buttonText">Submit</string>
+    <string name="forgotOutro">Back to Sign In</string>
 </resources>

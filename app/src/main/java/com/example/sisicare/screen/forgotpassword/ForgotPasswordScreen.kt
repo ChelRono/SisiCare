@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -42,7 +43,7 @@ fun ForgotPasswordDetails() {
         horizontalAlignment = Alignment.Start
     ) {
         Text(
-            text = "Forgot Password",
+            text = stringResource(id = R.string.forgotIntro),
             fontSize = 26.sp,
             fontWeight = FontWeight.Bold,
             color = Color(0xFFfb8500),
@@ -67,12 +68,12 @@ fun ForgotPasswordDetails() {
             leadingIcon = {
                 Icon(
                     painter = painterResource(id = R.drawable.email_24),
-                    contentDescription = ""
+                    contentDescription = stringResource(id = R.string.iconDesc)
                 )
             },
             placeholder = {
                 Text(
-                    text = "Email",
+                    text = stringResource(id = R.string.placeholderTitle),
                     color = Color.Gray
                 )
             }
@@ -88,7 +89,7 @@ fun ForgotPasswordDetails() {
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfb8500))
         ) {
             Text(
-                text = "Submit",
+                text = stringResource(id = R.string.buttonText),
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp
             )
@@ -96,7 +97,7 @@ fun ForgotPasswordDetails() {
         Spacer(modifier = Modifier.height(20.dp))
 
         Text(
-            text = "Back to Sign In",
+            text = stringResource(id = R.string.forgotOutro),
             modifier = Modifier
                 .align(Alignment.CenterHorizontally),
             color = Color.Gray
