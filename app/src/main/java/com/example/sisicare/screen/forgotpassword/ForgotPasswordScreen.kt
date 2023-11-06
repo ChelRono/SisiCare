@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -77,7 +79,6 @@ fun ForgotPasswordDetails() {
         )
         Spacer(modifier = Modifier.height(15.dp))
 
-
         Button(
             modifier = Modifier
                 .height(50.dp)
@@ -87,11 +88,20 @@ fun ForgotPasswordDetails() {
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfb8500))
         ) {
             Text(
-                text = stringResource(id = R.string.signInButton),
+                text = "Submit",
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp
             )
         }
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text(
+            text = "Back to Sign In",
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally),
+            color = Color.Gray
+
+        )
     }
 }
 
