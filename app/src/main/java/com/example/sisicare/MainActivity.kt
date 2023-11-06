@@ -6,10 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.example.sisicare.screen.forgotpassword.ForgotPasswordDetails
 import com.example.sisicare.ui.theme.SisiCareTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,17 +20,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                 MainContent()
+                 ForgotPasswordDetails()
                 }
             }
         }
     }
 }
 
-@Composable
-fun MainContent() {
-    Text(
-        text = "Hello",
-    )
-}
 
