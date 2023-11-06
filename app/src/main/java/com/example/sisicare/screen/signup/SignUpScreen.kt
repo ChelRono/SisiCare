@@ -38,6 +38,7 @@ fun SignUpDetails() {
     var username by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var isChecked by remember { mutableStateOf(false) }
     Column(
         modifier = Modifier
             .background(Color.White)
@@ -164,8 +165,8 @@ fun SignUpDetails() {
                 .padding(horizontal = 24.dp)
         ) {
             Checkbox(
-                checked = false,
-                onCheckedChange = null
+                checked = isChecked,
+                onCheckedChange = {isChecked = !isChecked},
             )
 
             Text(
