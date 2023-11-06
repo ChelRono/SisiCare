@@ -55,11 +55,13 @@ fun SignUpDetails() {
             shape = RoundedCornerShape(30.dp),
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Color(0xFFfb8500),
-                unfocusedBorderColor = Color.DarkGray),
+                unfocusedBorderColor = Color.DarkGray
+            ),
             leadingIcon = {
                 Icon(
                     painter = painterResource(id = R.drawable.person),
-                    contentDescription = "user" )
+                    contentDescription = "user"
+                )
             }
         )
 
@@ -74,11 +76,13 @@ fun SignUpDetails() {
             shape = RoundedCornerShape(30.dp),
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Color(0xFFfb8500),
-                unfocusedBorderColor = Color.DarkGray),
+                unfocusedBorderColor = Color.DarkGray
+            ),
             leadingIcon = {
                 Icon(
                     painter = painterResource(id = R.drawable.email_24),
-                    contentDescription = "email" )
+                    contentDescription = "email"
+                )
             }
         )
 
@@ -93,16 +97,18 @@ fun SignUpDetails() {
             shape = RoundedCornerShape(30.dp),
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Color(0xFFfb8500),
-                unfocusedBorderColor = Color.DarkGray),
+                unfocusedBorderColor = Color.DarkGray
+            ),
             leadingIcon = {
                 Icon(
                     painter = painterResource(id = R.drawable.lock_24),
-                    contentDescription = "padlock" )
+                    contentDescription = "padlock"
+                )
             },
             trailingIcon = {
                 Icon(
                     painter = painterResource(id = R.drawable.eye_24),
-                    contentDescription ="eye"
+                    contentDescription = "eye"
                 )
             }
         )
@@ -118,28 +124,30 @@ fun SignUpDetails() {
             shape = RoundedCornerShape(30.dp),
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = Color(0xFFfb8500),
-                unfocusedBorderColor = Color.DarkGray),
+                unfocusedBorderColor = Color.DarkGray
+            ),
             leadingIcon = {
                 Icon(
                     painter = painterResource(id = R.drawable.lock_24),
-                    contentDescription = "padlock" )
+                    contentDescription = "padlock"
+                )
             },
             trailingIcon = {
                 Icon(
                     painter = painterResource(id = R.drawable.eye_24),
-                    contentDescription ="eye"
+                    contentDescription = "eye"
                 )
             }
         )
 
         Spacer(modifier = Modifier.height(15.dp))
 
-        Row (
+        Row(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .padding(horizontal = 24.dp)
-        ){
+        ) {
             Checkbox(
                 checked = false,
                 onCheckedChange = null
@@ -166,7 +174,25 @@ fun SignUpDetails() {
         ) {
             Text(text = "Sign Up")
         }
-        Text(text = "Already have an account? Sign In")
+    }
+    Column(
+        verticalArrangement = Arrangement.Bottom,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Row {
+            Text(
+                text = "Already have an account?",
+                modifier = Modifier
+                    .padding(vertical = 24.dp)
+            )
+            Text(
+                text = "Sign In",
+                color = Color.Blue,
+                modifier = Modifier
+                    .padding(vertical = 24.dp)
+            )
+        }
     }
 }
+
 
