@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -38,21 +39,24 @@ fun SignUpDetails() {
     var username by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var confirmpassword by remember { mutableStateOf("") }
     var isChecked by remember { mutableStateOf(false) }
+
     Column(
         modifier = Modifier
             .background(Color.White)
             .padding(24.dp),
-        verticalArrangement = Arrangement.Top,
+        verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.Start
     ) {
         Text(
             text = "Sign Up",
             fontSize = 26.sp,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFFfb8500)
         )
 
-        Spacer(modifier = Modifier.height(15.dp))
+        Spacer(modifier = Modifier.height(25.dp))
 
         OutlinedTextField(
             value = username,
@@ -71,6 +75,12 @@ fun SignUpDetails() {
                 Icon(
                     painter = painterResource(id = R.drawable.person),
                     contentDescription = "user"
+                )
+            },
+            placeholder = {
+                Text(
+                    text = "User Name",
+                    color = Color.Gray
                 )
             }
         )
@@ -95,34 +105,11 @@ fun SignUpDetails() {
                     painter = painterResource(id = R.drawable.email_24),
                     contentDescription = "email"
                 )
-            }
-        )
-
-        Spacer(modifier = Modifier.height(15.dp))
-
-        OutlinedTextField(
-            value = password,
-            onValueChange = {newValue ->
-                password = newValue
             },
-            modifier = Modifier
-                .border(2.dp, Color.Gray, RoundedCornerShape(30.dp))
-                .fillMaxWidth(),
-            shape = RoundedCornerShape(30.dp),
-            colors = TextFieldDefaults.outlinedTextFieldColors(
-                focusedBorderColor = Color(0xFFfb8500),
-                unfocusedBorderColor = Color.DarkGray
-            ),
-            leadingIcon = {
-                Icon(
-                    painter = painterResource(id = R.drawable.lock_24),
-                    contentDescription = "padlock"
-                )
-            },
-            trailingIcon = {
-                Icon(
-                    painter = painterResource(id = R.drawable.eye_24),
-                    contentDescription = "eye"
+            placeholder = {
+                Text(
+                    text = "Email",
+                    color = Color.Gray
                 )
             }
         )
@@ -152,6 +139,47 @@ fun SignUpDetails() {
                 Icon(
                     painter = painterResource(id = R.drawable.eye_24),
                     contentDescription = "eye"
+                )
+            },
+            placeholder = {
+                Text(
+                    text = "Password",
+                    color = Color.Gray
+                )
+            }
+        )
+
+        Spacer(modifier = Modifier.height(15.dp))
+
+        OutlinedTextField(
+            value = confirmpassword,
+            onValueChange = {newValue ->
+                confirmpassword = newValue
+            },
+            modifier = Modifier
+                .border(2.dp, Color.Gray, RoundedCornerShape(30.dp))
+                .fillMaxWidth(),
+            shape = RoundedCornerShape(30.dp),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Color(0xFFfb8500),
+                unfocusedBorderColor = Color.DarkGray
+            ),
+            leadingIcon = {
+                Icon(
+                    painter = painterResource(id = R.drawable.lock_24),
+                    contentDescription = "padlock"
+                )
+            },
+            trailingIcon = {
+                Icon(
+                    painter = painterResource(id = R.drawable.eye_24),
+                    contentDescription = "eye"
+                )
+            },
+            placeholder = {
+                Text(
+                    text = "Confirm Password",
+                    color = Color.Gray
                 )
             }
         )
@@ -174,7 +202,7 @@ fun SignUpDetails() {
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
-                    .padding(start = 16.dp)
+
             )
         }
 
@@ -188,7 +216,11 @@ fun SignUpDetails() {
             shape = RoundedCornerShape(30.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfb8500))
         ) {
-            Text(text = "Sign Up")
+            Text(
+                text = "Sign Up",
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp
+            )
         }
     }
     Column(
