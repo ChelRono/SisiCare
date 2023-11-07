@@ -58,6 +58,8 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.1")
     implementation("com.google.accompanist:accompanist-pager:0.15.0")
     implementation("com.google.accompanist:accompanist-pager-indicators:0.15.0")
+    implementation ("com.airbnb.android:lottie-compose:6.1.0")
+
 
     // compose framework
     implementation("androidx.compose.ui:ui")
