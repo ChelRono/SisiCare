@@ -1,5 +1,6 @@
 package com.example.sisicare.screen.food
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,6 +10,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -80,6 +84,32 @@ fun FoodScreen() {
                 )
             }
         )
+        Spacer(modifier = Modifier.height(20.dp))
+
+        OrganisationList()
     }
 }
 
+@Composable
+fun OrganisationList() {
+    val listOfItems = mutableListOf(
+        "The Food Centre",
+        "No kid hungry",
+        "Feed a child",
+        "City Harvest"
+    )
+    Text(
+        text = "Organisations near you",
+        fontSize = 22.sp,
+        fontWeight = FontWeight.Bold
+    )
+    Spacer(modifier = Modifier.height(15.dp))
+
+    LazyHorizontalGrid(
+        rows = GridCells.Fixed(1)
+    ) {
+        items(listOfItems) { item ->
+
+        }
+    }
+}
