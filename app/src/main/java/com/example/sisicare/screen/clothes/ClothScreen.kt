@@ -1,9 +1,12 @@
 package com.example.sisicare.screen.clothes
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -47,49 +50,70 @@ fun ClothesScreen(){
                 .fillMaxWidth()
                 .weight(1F),
         ) {
-            ElevatedCard(
-                elevation = CardDefaults.cardElevation(
-                    defaultElevation = 6.dp
-                ),
-                modifier = Modifier
-                    .fillMaxWidth()
-
-            ) {
-                Column(
-                    modifier = Modifier
-                        .padding(16.dp),
-                ) {
-                    Text(
-                        text = "Name : Valarie Rono",
-                        textAlign = TextAlign.Center,
-                    )
-                    Text(
-                        text = "Location : Annex",
-                        textAlign = TextAlign.Center,
-                    )
-                    Text(
-                        text = "Date : 21/03/2023",
-                        textAlign = TextAlign.Center,
-                    )
-
-                }
+            Column {
+                CardDetails()
+                Spacer(modifier = Modifier.height(15.dp))
+                CardDetails()
+                Spacer(modifier = Modifier.height(15.dp))
+                CardDetails()
 
             }
+        }
+        Box(
+            modifier = Modifier
+                .padding(24.dp)
+                .fillMaxWidth(),
+            contentAlignment = Alignment.BottomEnd
+        ){
+
+            DonateButton()
         }
     }
 }
 
 @Composable
-fun DonateButton(){
+fun DonateButton() {
     ExtendedFloatingActionButton(
-        onClick = {  },
+        onClick = { },
         shape = RoundedCornerShape(12.dp),
         containerColor = Color(0xFFfb8500),
         elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation(5.dp)
 
     ) {
         Icon(Icons.Filled.Add, "Floating action button.")
-        Text(text = "DONATE")
+        Text(text = "ADD")
     }
 }
 
+@Composable
+fun CardDetails(){
+    ElevatedCard(
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 6.dp
+        ),
+        modifier = Modifier
+            .fillMaxWidth()
+
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(16.dp),
+        ) {
+            Text(
+                text = "Name : Valarie Rono",
+                textAlign = TextAlign.Center,
+            )
+            Text(
+                text = "Location : Annex",
+                textAlign = TextAlign.Center,
+            )
+            Text(
+                text = "Date : 21/03/2023",
+                textAlign = TextAlign.Center,
+            )
+
+        }
+
+    }
+
+}
