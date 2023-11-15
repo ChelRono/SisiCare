@@ -1,7 +1,6 @@
 package com.example.sisicare.screen.clothes
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -14,9 +13,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExtendedFloatingActionButton
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
-import androidx.compose.material3.FloatingActionButtonElevation
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -56,7 +53,6 @@ fun ClothesScreen(){
                 CardDetails()
                 Spacer(modifier = Modifier.height(15.dp))
                 CardDetails()
-
             }
         }
         Box(
@@ -93,7 +89,6 @@ fun CardDetails(){
         ),
         modifier = Modifier
             .fillMaxWidth()
-
     ) {
         Column(
             modifier = Modifier
@@ -111,9 +106,6 @@ fun CardDetails(){
                 text = "Date : 21/03/2023",
                 textAlign = TextAlign.Center,
             )
-
         }
-
     }
-
 }
