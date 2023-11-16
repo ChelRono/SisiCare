@@ -70,7 +70,7 @@ fun ClothesScreen(){
 @Composable
 fun DonateButton() {
     ExtendedFloatingActionButton(
-        onClick = { },
+        onClick = {   },
         shape = RoundedCornerShape(12.dp),
         containerColor = Color(0xFFfb8500),
         elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation(5.dp)
