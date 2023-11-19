@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -42,18 +43,17 @@ fun BookScreen() {
                 actions = {
                     Icon(
                         painter = painterResource(id = R.drawable.book_24),
-                        contentDescription = "" )
+                        contentDescription = stringResource(id = R.string.imagedesc1) )
                 },
                 title = {
                         Text(
                             modifier = Modifier
                                 .fillMaxWidth(),
-                            text = "Discover",
+                            text = stringResource(id = R.string.appdesc),
                             textAlign = TextAlign.Center
                         )
                 },
             )
-
         }
     ) { paddingValues ->
         Column(
@@ -106,7 +106,7 @@ fun BookDetails(title : String){
     ) {
         Image(
             painter = painterResource(id = R.drawable.michelle),
-            contentDescription = "",
+            contentDescription = stringResource(id = R.string.imagedesc1),
             modifier = Modifier,
             contentScale = ContentScale.FillWidth
         )
@@ -120,7 +120,7 @@ fun BookDetails(title : String){
                 .padding(horizontal = 16.dp)
         )
         Text(
-            text = "Author : Michelle Obama",
+            text = stringResource(id = R.string.author),
             modifier = Modifier
                 .padding(horizontal = 16.dp),
             color = Color.Gray,
@@ -137,7 +137,7 @@ fun BookDetails(title : String){
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfb8500))
         ) {
             Text(
-                text = "VIEW",
+                text = stringResource(id = R.string.buttontext),
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp
             )
