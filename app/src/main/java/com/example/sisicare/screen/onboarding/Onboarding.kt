@@ -1,5 +1,6 @@
 package com.example.sisicare.screen.onboarding
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Button
@@ -19,7 +19,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -34,26 +36,40 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun OnBoardingDetails(page: Page) {
-    Box (
-        contentAlignment = Alignment.TopStart
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
     ) {
-        Column(
+        Box(
+            contentAlignment = Alignment.TopStart,
             modifier = Modifier
-                .fillMaxSize(),
+                .weight(1f)
+                .fillMaxWidth()
         ) {
-            LoaderIntro(
+            Column(
                 modifier = Modifier
-                    .size(300.dp)
-                    .fillMaxWidth()
-                    .align(alignment = Alignment.CenterHorizontally), page.image
-            )
-            Column (
+                    .fillMaxSize(),
+            ) {
+                Image(
+                    painter = painterResource(id = page.image),
+                    contentDescription = "",
+                    contentScale = ContentScale.FillBounds,
+                    modifier = Modifier
+                        .fillMaxSize()
+                )
+            }
+        }
+        Box(
+            modifier = Modifier
+                .weight(1f),
+            contentAlignment = Alignment.TopCenter
+        ) {
+            Column(
                 modifier = Modifier
                     .padding(24.dp),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
-
-            ){
+                ) {
                 Text(
                     text = page.title,
                     fontSize = 22.sp,
@@ -75,11 +91,12 @@ fun OnBoardingDetails(page: Page) {
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun OnBoardingPager() {
-    val pagerState = rememberPagerState(pageCount = 3)
+    val pagerState = rememberPagerState()
     val scope = rememberCoroutineScope()
 
     HorizontalPager(
         state = pagerState,
+        count = 3,
         modifier = Modifier
             .fillMaxWidth()
     ) { page ->
