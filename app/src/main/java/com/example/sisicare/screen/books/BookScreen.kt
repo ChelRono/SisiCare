@@ -40,6 +40,9 @@ fun BookScreen() {
     Scaffold(
         topBar = {
             TopAppBar(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp),
                 actions = {
                     Icon(
                         painter = painterResource(id = R.drawable.book_24),
@@ -59,11 +62,9 @@ fun BookScreen() {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(20.dp)
+                .padding(horizontal = 20.dp)
                 .padding(paddingValues)
         ) {
-            Spacer(modifier = Modifier.height(20.dp))
-
             DonationDisplay()
         }
     }
@@ -107,8 +108,9 @@ fun BookDetails(title : String){
         Image(
             painter = painterResource(id = R.drawable.michelle),
             contentDescription = stringResource(id = R.string.imagedesc1),
-            modifier = Modifier,
-            contentScale = ContentScale.FillWidth
+            modifier = Modifier
+                .fillMaxSize(),
+            contentScale = ContentScale.FillBounds
         )
         Spacer(modifier = Modifier.height(10.dp))
 
