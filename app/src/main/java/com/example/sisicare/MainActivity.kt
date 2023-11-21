@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.sisicare.screen.signup.SignUpDetails
 import com.example.sisicare.ui.theme.SisiCareTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,12 +20,10 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                  //OnBoardingPager()
-                    SignUpDetails()
+                    //SignUpDetails()
 
                 }
             }
         }
     }
 }
-
-
