@@ -21,4 +21,14 @@
     <string name="checkboxText">I agree to all the Terms &amp; Conditions</string>
     <string name="outroText1">Already have an account?</string>
     <string name="outroText2">Sign In</string>
+    <string name="loginIntro">Welcome Back!</string>
+    <string name="placeholder1">Name or Email</string>
+    <string name="lockIcon">lock</string>
+    <string name="visibilityIcon">visibility</string>
+    <string name="visibilityOffIcon">visibility off</string>
+    <string name="placeholder2">Password</string>
+    <string name="forgot">Forgot Password?</string>
+    <string name="signInButton">Sign In</string>
+    <string name="loginOutro1">Sign In</string>
+    <string name="loginOutro2">Sign In</string>
 </resources>

@@ -28,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -51,10 +52,12 @@ fun SignInDetails() {
         horizontalAlignment = Alignment.Start
     ) {
         Text(
-            text = "Sign In",
+            text = stringResource(id = R.string.loginIntro),
             fontSize = 26.sp,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFFfb8500)
+            color = Color(0xFFfb8500),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
         )
         Spacer(modifier = Modifier.height(25.dp))
 
@@ -79,7 +82,7 @@ fun SignInDetails() {
             },
             placeholder = {
                 Text(
-                    text = "Name or Email",
+                    text = stringResource(id = R.string.placeholder1),
                     color = Color.Gray
                 )
             }
@@ -102,7 +105,7 @@ fun SignInDetails() {
             leadingIcon = {
                 Icon(
                     painter = painterResource(id = R.drawable.lock_24),
-                    contentDescription = ""
+                    contentDescription = stringResource(id = R.string.lockIcon)
                 )
             },
             trailingIcon = {
@@ -110,7 +113,7 @@ fun SignInDetails() {
                     IconButton(onClick = { showPassword = false }) {
                         Icon(
                             painter = painterResource(id = R.drawable.visibility_24),
-                            contentDescription = ""
+                            contentDescription = stringResource(id = R.string.visibilityIcon)
                         )
                     }
                 } else {
@@ -118,14 +121,14 @@ fun SignInDetails() {
                         onClick = { showPassword = true }) {
                         Icon(
                             painter = painterResource(id = R.drawable.visibility_off_24),
-                            contentDescription = ""
+                            contentDescription = stringResource(id = R.string.visibilityOffIcon)
                         )
                     }
                 }
             },
             placeholder = {
                 Text(
-                    text = "Password",
+                    text = stringResource(id = R.string.placeholder2),
                     color = Color.Gray
                 )
             },
@@ -139,7 +142,7 @@ fun SignInDetails() {
         Spacer(modifier = Modifier.height(15.dp))
 
         Text(
-            text = "Forgot Password?",
+            text = stringResource(id = R.string.forgot),
             fontSize = 14.sp,
             modifier = Modifier
                 .align(Alignment.End),
@@ -156,7 +159,7 @@ fun SignInDetails() {
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfb8500))
         ) {
             Text(
-                text = "Sign In",
+                text = stringResource(id = R.string.signInButton),
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp
             )
@@ -168,12 +171,12 @@ fun SignInDetails() {
     ) {
         Row {
             Text(
-                text = "Don't have an account?",
+                text = stringResource(id = R.string.loginOutro1),
                 modifier = Modifier
                     .padding(vertical = 24.dp)
             )
             Text(
-                text = "Sign Up",
+                text = stringResource(id = R.string.loginOutro2),
                 color = Color.Blue,
                 modifier = Modifier
                     .padding(vertical = 24.dp)
