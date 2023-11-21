@@ -25,11 +25,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-<<<<<<< HEAD
                  OnBoardingPager()
-=======
-                    SignUpDetails()
->>>>>>> 55b5092 ( Adds textfield for the sign up screen)
+
                 }
             }
         }

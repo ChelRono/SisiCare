@@ -9,4 +9,16 @@
     <string name="ContDesc1">Image</string>
     <string name="SkipButton">Skip</string>
     <string name="NextButton">NEXT</string>
+    <string name="introText">Sign Up</string>
+    <string name="userDesc">user</string>
+    <string name="userTitle">User Name</string>
+    <string name="emailDesc">email</string>
+    <string name="emailTitle">Email</string>
+    <string name="passwordIcon1">padlock</string>
+    <string name="passwordIcon2">hide_password</string>
+    <string name="passwordTitle">Password</string>
+    <string name="passwordTitle2">Confirm Password</string>
+    <string name="checkboxText">I agree to all the Terms &amp; Conditions</string>
+    <string name="outroText1">Already have an account?</string>
+    <string name="outroText2">Sign In</string>
 </resources>
