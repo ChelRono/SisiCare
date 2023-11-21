@@ -50,11 +50,15 @@ android {
 }
 
 dependencies {
-
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.8.1")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
+    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation("com.google.accompanist:accompanist-pager:0.23.1")
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.15.0")
+    implementation ("com.airbnb.android:lottie-compose:6.1.0")
+
 
     // compose framework
     implementation("androidx.compose.ui:ui")
@@ -65,7 +69,6 @@ dependencies {
 
     // compose navigation
     implementation("androidx.navigation:navigation-compose:2.7.5")
-
 
     // koin dependency
     implementation("io.insert-koin:koin-androidx-compose:3.4.6")

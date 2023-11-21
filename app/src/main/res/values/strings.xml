@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">SisiCare</string>
+    <string name="OnboardingTitle1">Welcome to SisiCare</string>
+    <string name="OnboardingTitle2">Easy and Fast donation</string>
+    <string name="OnboardingTitle3">Lets Get You Started</string>
+    <string name="OnboardingDesc1">"This is an app that allows one to give back to the community through food, books, clothes and sanitary towels."</string>
+    <string name="OnboardingDesc2">Pick an item you would like to donate give the pickup and drop off details and you are done in less than no time</string>
+    <string name="OnboardingDesc3">You must be the change you wish to see in the world.</string>
+    <string name="ContDesc1">Image</string>
+    <string name="SkipButton">Skip</string>
+    <string name="NextButton">NEXT</string>
 </resources>
