@@ -6,11 +6,13 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+<<<<<<< HEAD
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.sisicare.screen.onboarding.OnBoardingPager
+=======
+import com.example.sisicare.screen.signup.SignUpDetails
+>>>>>>> 55b5092 ( Adds textfield for the sign up screen)
 import com.example.sisicare.ui.theme.SisiCareTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,9 +26,11 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                  OnBoardingPager()
+
                 }
             }
         }
     }
 }
+
 
