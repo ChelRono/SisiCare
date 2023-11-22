@@ -29,6 +29,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sisicare.R
+import com.example.sisicare.screen.navigation.NavigationItem
+import com.example.sisicare.screen.navigation.NavigationSetup
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
@@ -134,7 +136,7 @@ fun OnBoardingPager() {
                         .padding(start = 10.dp)
                         .weight(0.8f),
                     onClick = {
-                        // Navigate to Login Screen
+                              NavigationSetup.navigateTo(NavigationItem.SignUpDetails)
                     },
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfb8500))

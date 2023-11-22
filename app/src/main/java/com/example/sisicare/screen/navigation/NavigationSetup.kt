@@ -17,7 +17,7 @@ sealed class NavigationItem {
 
 object NavigationSetup {
 
-    var currentScreen: MutableState<NavigationItem> = mutableStateOf(NavigationItem.SignUpDetails)
+    var currentScreen: MutableState<NavigationItem> = mutableStateOf(NavigationItem.OnBoardingPager)
 
     fun navigateTo(destination : NavigationItem){
         currentScreen.value = destination
