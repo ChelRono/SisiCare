@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.example.sisicare.app.NavigationApp
+import com.example.sisicare.screen.signin.SignInDetails
 import com.example.sisicare.screen.signup.SignUpDetails
 import com.example.sisicare.ui.theme.SisiCareTheme
 
@@ -15,18 +17,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SisiCareTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                 //OnBoardingPager()
-                    SignUpDetails()
 
-                }
+                   NavigationApp()
             }
         }
     }
 }
+
 
 

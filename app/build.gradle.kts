@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -58,6 +59,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-pager:0.23.1")
     implementation("com.google.accompanist:accompanist-pager-indicators:0.15.0")
     implementation ("com.airbnb.android:lottie-compose:6.1.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
 
     // compose framework
@@ -87,6 +89,10 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2")
     implementation("com.google.android.material:material:1.10.0")
+
+    // firebase
+    implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
+    implementation("com.google.firebase:firebase-auth")
 
     // tests
     testImplementation("junit:junit:4.13.2")

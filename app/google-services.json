@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "949092568328",
+    "project_id": "sisicare-8d5c6",
+    "storage_bucket": "sisicare-8d5c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949092568328:android:a02a6273d342b0548cb0bd",
+        "android_client_info": {
+          "package_name": "com.example.sisicare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4vN68vBvq0cM_IeJ8GBCxkm4GtrRbFdc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
