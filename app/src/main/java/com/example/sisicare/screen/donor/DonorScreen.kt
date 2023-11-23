@@ -3,23 +3,23 @@ package com.example.sisicare.screen.donor
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.DropdownMenu
+import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -27,11 +27,8 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Shapes
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -42,8 +39,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -52,33 +47,67 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.sisicare.R
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
 @Composable
 fun HomeScreen() {
+    var menuExpanded by remember {
+        mutableStateOf(false)
+    }
     Scaffold(
         modifier = Modifier
-            .padding(20.dp),
+            .padding(horizontal = 20.dp),
         topBar = {
-            TopAppBar(
-                title = { },
-                actions = {
-                    IconButton(
-                        onClick = { /*TODO*/ },
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.girl),
-                            contentDescription = "person",
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .size(60.dp)
-                                .clip(CircleShape),
-                            contentScale = ContentScale.FillBounds
-                        )
+                TopAppBar(
+                    title = {},
+                    navigationIcon = {
+                        IconButton(onClick = { /* doSomething() */ }) {
+                           Icon(
+                               painter = painterResource(id = R.drawable.volunteer_activism),
+                               contentDescription = "",
+                               tint = Color(0xFFfb8500),
+                               modifier = Modifier
+                                   .size(30.dp)
+                               )
+                        }
+                    },
+                    actions = {
+                        IconButton(onClick = { menuExpanded = !menuExpanded }) {
+                            Icon(
+                                imageVector = Icons.Filled.MoreVert,
+                                contentDescription = "Localized description"
+                            )
+
+                        }
+                        DropdownMenu(
+                            expanded = menuExpanded,
+                            onDismissRequest = { menuExpanded = false },
+
+                        ) {
+                            // 6
+                            DropdownMenuItem(
+                                onClick = { /* TODO */ },
+                            ) {
+
+                                Text("Profile")
+
+                            }
+                            DropdownMenuItem(
+
+
+                                onClick = { /* TODO */ },
+                            ) {
+                                Text("Settings")
+                            }
+                            DropdownMenuItem(
+                                onClick = {  },
+                            ) { Text("LogOut") }
+                        }
                     }
-                }
-            )
+                )
         }
     ) { paddingValues ->
         Column(
@@ -89,7 +118,9 @@ fun HomeScreen() {
             Text(
                 text = "Hi Valarie !",
                 fontWeight = FontWeight.Bold,
-                fontSize = 30.sp
+                fontSize = 30.sp,
+                modifier = Modifier
+                    .padding(vertical = 10.dp)
             )
             Spacer(modifier = Modifier.height(20.dp))
             CardInfo()
@@ -99,6 +130,14 @@ fun HomeScreen() {
             FAQSection()
         }
     }
+}
+
+@Composable
+fun DropDownDemo() {
+    var menuExpanded by remember {
+        mutableStateOf(false)
+    }
+
 }
 
 @Composable
@@ -163,6 +202,7 @@ fun CategoryDetails() {
 
         Row(
             modifier = Modifier
+                .padding(vertical = 20.dp)
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -260,7 +300,7 @@ fun ExpandableFAQCard(title: String, description: String) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 20.dp, vertical = 0.dp)
+                .padding(horizontal = 20.dp)
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
