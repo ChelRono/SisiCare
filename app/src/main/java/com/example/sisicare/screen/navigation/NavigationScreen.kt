@@ -1,5 +1,6 @@
 package com.example.sisicare.screen.navigation
 
+import FoodScreen
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material3.Icon
@@ -21,7 +22,6 @@ import com.example.sisicare.screen.books.BookScreen
 import com.example.sisicare.screen.books.BookScreenViewModel
 import com.example.sisicare.screen.clothes.ClothScreen
 import com.example.sisicare.screen.clothes.ClothScreenViewModel
-import com.example.sisicare.screen.food.FoodScreen
 import com.example.sisicare.screen.food.FoodScreenViewModel
 import com.example.sisicare.screen.donor.DonorScreen
 import com.example.sisicare.screen.donor.DonorScreenViewModel
@@ -30,7 +30,7 @@ import com.example.sisicare.screen.sanitary.SanitaryScreenViewModel
 
 @Composable
 fun NavigationGraph(navController: NavHostController, modifier: Modifier) {
-    NavHost(navController, startDestination = BottomNavItem.Donor.route) {
+    NavHost(navController, startDestination = BottomNavItem.Food.route) {
         composable(BottomNavItem.Food.route) {
             FoodScreen(viewModel = FoodScreenViewModel(), navController = navController )
         }
