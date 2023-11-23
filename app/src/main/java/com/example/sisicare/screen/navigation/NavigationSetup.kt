@@ -15,6 +15,8 @@ sealed class NavigationItem {
 
 }
 
+
+
 object NavigationSetup {
 
     var currentScreen: MutableState<NavigationItem> = mutableStateOf(NavigationItem.OnBoardingPager)
