@@ -105,7 +105,7 @@ class SignUpScreenViewModel : ViewModel() {
                 Log.d(TAG, "isSuccessful = ${it.isSuccessful}")
 
                 if (it.isSuccessful){
-                    NavigationSetup.navigateTo(NavigationItem.DonorScreen)
+                    //NavigationSetup.navigateTo(NavigationItem.DonorScreen)
                 }
 
             }

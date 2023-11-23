@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.example.sisicare.data.SignInUIEvent
 import com.example.sisicare.data.Validator
+import com.example.sisicare.screen.navigation.BottomNavItem
 import com.example.sisicare.screen.navigation.NavigationItem
 import com.example.sisicare.screen.navigation.NavigationSetup
 import com.google.firebase.auth.FirebaseAuth
@@ -63,7 +64,8 @@ class SignInScreenViewModel : ViewModel() {
                 Log.d(TAG, "${it.isSuccessful}")
 
                 if (it.isSuccessful){
-                    NavigationSetup.navigateTo(NavigationItem.DonorScreen)
+                   NavigationSetup.navigateTo(NavigationItem.MainRoute)
+
                 }
             }
             .addOnFailureListener {

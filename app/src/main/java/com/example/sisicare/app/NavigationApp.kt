@@ -6,7 +6,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.sisicare.screen.donor.DonorScreen
+import com.example.sisicare.MainContent
 import com.example.sisicare.screen.navigation.NavigationItem
 import com.example.sisicare.screen.navigation.NavigationSetup
 import com.example.sisicare.screen.onboarding.OnBoardingPager
@@ -20,7 +20,6 @@ fun NavigationApp(){
             .fillMaxSize(),
         color = Color.White
     ) {
-
         Crossfade(targetState = NavigationSetup.currentScreen, label = "") { currentState->
             when(currentState.value){
                 is NavigationItem.OnBoardingPager ->{
@@ -32,13 +31,10 @@ fun NavigationApp(){
                 is NavigationItem.SignInDetails ->{
                     SignInDetails()
                 }
-                is NavigationItem.DonorScreen ->{
-                    DonorScreen()
+                is NavigationItem.MainRoute ->{
+                    MainContent()
                 }
-
-
             }
         }
-
     }
 }
