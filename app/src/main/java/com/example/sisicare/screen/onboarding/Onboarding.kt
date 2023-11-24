@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -45,33 +46,28 @@ fun OnBoardingDetails(page: Page) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color.White)
     ) {
         Box(
-            contentAlignment = Alignment.TopStart,
             modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth()
         ) {
+         Column (
+             verticalArrangement = Arrangement.Top,
+             horizontalAlignment = Alignment.CenterHorizontally,
+             modifier = Modifier
+                 .padding(20.dp)
+                 .fillMaxSize()
+         ){
+             Image(
+                 painter = painterResource(id = page.image),
+                 contentDescription = "",
+                 contentScale = ContentScale.None,
+                 modifier = Modifier
+             )
+         }
             Column(
                 modifier = Modifier
-                    .fillMaxSize(),
-            ) {
-                Image(
-                    painter = painterResource(id = page.image),
-                    contentDescription = "",
-                    contentScale = ContentScale.FillBounds,
-                    modifier = Modifier
-                        .fillMaxSize()
-                )
-            }
-        }
-        Box(
-            modifier = Modifier
-                .weight(1f),
-            contentAlignment = Alignment.TopCenter
-        ) {
-            Column(
-                modifier = Modifier
+                    .fillMaxSize()
                     .padding(24.dp),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -80,25 +76,30 @@ fun OnBoardingDetails(page: Page) {
                     text = page.title,
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFFfb8500)
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Center
                 )
                 Spacer(modifier = Modifier.height(10.dp))
 
                 Text(
                     text = page.description,
                     color = Color.Black,
-                    textAlign = TextAlign.Center,
                     modifier = Modifier
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Center
                 )
             }
         }
     }
 }
+
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun OnBoardingPager() {
+fun OnBoardingPager( ) {
     val pagerState = rememberPagerState()
     val scope = rememberCoroutineScope()
+
 
     HorizontalPager(
         state = pagerState,
@@ -111,6 +112,7 @@ fun OnBoardingPager() {
     Column(
         verticalArrangement = Arrangement.Bottom,
         modifier = Modifier
+            .fillMaxSize()
             .padding(65.dp)
     ) {
         HorizontalPagerIndicator(
@@ -182,7 +184,7 @@ fun OnBoardingPager() {
                         }
                     },
                     shape = RoundedCornerShape(10.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFfb8500))
+                    colors = ButtonDefaults.buttonColors(containerColor =  Color(0xFFfb8500))
                 ) {
                     Text(text = stringResource(id = R.string.NextButton))
                 }

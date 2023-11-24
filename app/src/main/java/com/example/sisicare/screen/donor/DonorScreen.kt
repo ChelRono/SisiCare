@@ -4,6 +4,7 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -141,43 +142,53 @@ fun TopBar(){
 @Composable
 fun CardInfo(){
     ElevatedCard(
-        colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFfb8500),
-        ),
         modifier = Modifier
             .fillMaxWidth()
             .size(width = 240.dp, height = 200.dp)
     ) {
         Row {
-            Column (
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Box (
                 modifier = Modifier
-                    .padding(horizontal = 16.dp, vertical = 30.dp),
-            ) {
-                Text(
-                    text = "Giving back to the",
-                    textAlign = TextAlign.Center,
-                    color = Color.White,
-                    fontWeight = FontWeight.Bold
-                )
-                Text(
-                    text = "Giving back to the",
-                    textAlign = TextAlign.Center,
-                    color = Color.White,
-                    fontWeight = FontWeight.Bold
-                )
-                OutlinedButton(
-                    onClick = { /*TODO*/ },
-                    colors = ButtonDefaults.buttonColors(Color.White),
-                    shape = RoundedCornerShape(12.dp),
+                    .weight(1f)
+                    .background(Color.Blue)
+            ){
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .padding(vertical = 30.dp)
+                        .padding(horizontal = 16.dp, vertical = 30.dp),
                 ) {
                     Text(
-                        text = "Donate",
-                        color = Color(0xFFfb8500)
+                        text = "Giving back to the",
+                        textAlign = TextAlign.Center,
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold
                     )
+                    Text(
+                        text = "Giving back to the",
+                        textAlign = TextAlign.Center,
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold
+                    )
+                    OutlinedButton(
+                        onClick = { /*TODO*/ },
+                        colors = ButtonDefaults.buttonColors(Color.White),
+                        shape = RoundedCornerShape(12.dp),
+                        modifier = Modifier
+                            .padding(vertical = 30.dp)
+                    ) {
+                        Text(
+                            text = "Donate",
+                            color = Color(0xFFfb8500)
+                        )
+                    }
                 }
+            }
+            Box (
+                modifier = Modifier
+                    .weight(1f)
+            ){
+
+
             }
 
         }
