@@ -31,4 +31,8 @@
     <string name="signInButton">Sign In</string>
     <string name="loginOutro1">Sign In</string>
     <string name="loginOutro2">Sign In</string>
+    <string name="imagedesc1">Book</string>
+    <string name="appdesc">Discover</string>
+    <string name="author">Author : Michelle Obama</string>
+    <string name="buttontext">VIEW</string>
 </resources>

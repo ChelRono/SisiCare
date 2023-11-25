@@ -22,8 +22,11 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -34,7 +37,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -42,6 +47,7 @@ import com.example.sisicare.R
 import com.example.sisicare.screen.food.FoodScreenViewModel
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FoodScreen(
     viewModel: FoodScreenViewModel,
@@ -49,15 +55,41 @@ fun FoodScreen(
 ) {
     var organisation by remember { mutableStateOf("") }
 
-
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp),
+                actions = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.food),
+                        contentDescription = stringResource(id = R.string.imagedesc1) )
+                },
+                navigationIcon = {
+                    IconButton(onClick = {  }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.volunteer_activism),
+                            contentDescription = "",
+                            tint = Color(0xFFfb8500),
+                            modifier = Modifier
+                                .size(30.dp)
+                        )
+                    }
+                },
+                title = {},
+            )
+        }
+    ) { paddingValues ->
     Column(
         modifier = Modifier
             .padding(20.dp)
             .fillMaxSize()
+            .padding(paddingValues)
     ) {
         OutlinedTextField(
             value = organisation,
-            onValueChange = {newValue ->
+            onValueChange = { newValue ->
                 organisation = newValue
             },
             modifier = Modifier
@@ -84,7 +116,7 @@ fun FoodScreen(
         Spacer(modifier = Modifier.height(20.dp))
 
         OrganizationCard()
-
+        }
     }
 }
 
