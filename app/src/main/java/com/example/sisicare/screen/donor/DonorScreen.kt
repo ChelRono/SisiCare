@@ -149,38 +149,21 @@ fun CardInfo(){
         Row {
             Box (
                 modifier = Modifier
-                    .weight(1f)
+                    .fillMaxSize()
                     .background(Color.Blue)
             ){
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .padding(horizontal = 16.dp, vertical = 30.dp),
+
                 ) {
-                    Text(
-                        text = "Giving back to the",
-                        textAlign = TextAlign.Center,
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Text(
-                        text = "Giving back to the",
-                        textAlign = TextAlign.Center,
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold
-                    )
-                    OutlinedButton(
-                        onClick = { /*TODO*/ },
-                        colors = ButtonDefaults.buttonColors(Color.White),
-                        shape = RoundedCornerShape(12.dp),
+                    Image(
+                        painter = painterResource(id = R.drawable.fooddonation),
+                        contentDescription = "",
                         modifier = Modifier
-                            .padding(vertical = 30.dp)
-                    ) {
-                        Text(
-                            text = "Donate",
-                            color = Color(0xFFfb8500)
+                            .fillMaxSize(),
+                        contentScale = ContentScale.FillBounds
                         )
-                    }
                 }
             }
             Box (

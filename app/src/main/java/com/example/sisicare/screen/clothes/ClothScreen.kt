@@ -71,17 +71,7 @@ fun ClothScreen(
             modifier = Modifier
                 .padding(paddingValues)
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "Clothes donation",
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            }
+
             Box(
                 modifier = Modifier
                     .padding(24.dp)
@@ -132,7 +122,7 @@ fun CardDetails(){
             defaultElevation = 6.dp
         ),
         modifier = Modifier
-            .fillMaxWidth()
+
     ) {
         Column(
             modifier = Modifier
