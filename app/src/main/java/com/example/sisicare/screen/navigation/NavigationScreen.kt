@@ -30,7 +30,7 @@ import com.example.sisicare.screen.sanitary.SanitaryScreenViewModel
 
 @Composable
 fun NavigationGraph(navController: NavHostController, modifier: Modifier) {
-    NavHost(navController, startDestination = BottomNavItem.Food.route) {
+    NavHost(navController, startDestination = BottomNavItem.Donor.route) {
         composable(BottomNavItem.Food.route) {
             FoodScreen(viewModel = FoodScreenViewModel(), navController = navController )
         }
