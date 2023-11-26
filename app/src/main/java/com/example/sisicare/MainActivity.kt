@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.sisicare.app.NavigationApp
+import com.example.sisicare.screen.books.BookScreenDetails
 import com.example.sisicare.screen.food.FoodScreenDetails
 import com.example.sisicare.screen.navigation.BottomNavigation
 import com.example.sisicare.screen.navigation.NavigationGraph
@@ -27,7 +28,8 @@ class MainActivity : ComponentActivity() {
             SisiCareTheme {
 
                    //NavigationApp()
-                FoodScreenDetails()
+                //FoodScreenDetails()
+                BookScreenDetails()
             }
         }
     }
