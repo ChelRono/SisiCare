@@ -14,9 +14,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.sisicare.app.NavigationApp
 import com.example.sisicare.screen.books.BookScreenDetails
+import com.example.sisicare.screen.clothes.ClothScreen
 import com.example.sisicare.screen.food.FoodScreenDetails
 import com.example.sisicare.screen.navigation.BottomNavigation
 import com.example.sisicare.screen.navigation.NavigationGraph
+import com.example.sisicare.screen.sanitary.SanitaryScreenDetails
 import com.example.sisicare.screen.signin.SignInDetails
 import com.example.sisicare.screen.signup.SignUpDetails
 import com.example.sisicare.ui.theme.SisiCareTheme
@@ -27,9 +29,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             SisiCareTheme {
 
-                   //NavigationApp()
+                   NavigationApp()
                 //FoodScreenDetails()
-                BookScreenDetails()
+                //BookScreenDetails()
+                //SanitaryScreenDetails()
+
             }
         }
     }

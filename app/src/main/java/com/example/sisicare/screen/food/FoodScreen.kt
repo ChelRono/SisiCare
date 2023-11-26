@@ -2,6 +2,7 @@
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -87,6 +88,9 @@ fun FoodScreen(
             .fillMaxSize()
             .padding(paddingValues)
     ) {
+        ImageDemo()
+        Spacer(modifier = Modifier.height(20.dp))
+
         OutlinedTextField(
             value = organisation,
             onValueChange = { newValue ->
@@ -109,6 +113,10 @@ fun FoodScreen(
                 )
             }
         )
+
+
+
+
         Spacer(modifier = Modifier.height(20.dp))
 
         OrganisationList()
@@ -117,6 +125,23 @@ fun FoodScreen(
 
         OrganizationCard()
         }
+    }
+}
+
+@Composable
+fun ImageDemo(){
+    ElevatedCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .size(width = 240.dp, height = 200.dp)
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.fooddonation),
+            contentDescription = "",
+            modifier = Modifier
+                .fillMaxSize(),
+            contentScale = ContentScale.FillBounds
+        )
     }
 }
 

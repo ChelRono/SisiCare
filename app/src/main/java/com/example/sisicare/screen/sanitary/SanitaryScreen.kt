@@ -1,8 +1,10 @@
 package com.example.sisicare.screen.sanitary
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -24,19 +26,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.sisicare.R
+import com.example.sisicare.screen.clothes.CardDetails
+import com.example.sisicare.screen.clothes.DonateButton
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SanitaryScreen(
     viewModel: SanitaryScreenViewModel,
     navController: NavController
-){
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -46,10 +51,11 @@ fun SanitaryScreen(
                 actions = {
                     Icon(
                         painter = painterResource(id = R.drawable.woman),
-                        contentDescription = stringResource(id = R.string.imagedesc1) )
+                        contentDescription = stringResource(id = R.string.imagedesc1)
+                    )
                 },
                 navigationIcon = {
-                    IconButton(onClick = {  }) {
+                    IconButton(onClick = { }) {
                         Icon(
                             painter = painterResource(id = R.drawable.volunteer_activism),
                             contentDescription = "",
@@ -63,24 +69,36 @@ fun SanitaryScreen(
             )
         }
     ) { paddingValues ->
-            Column(
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+        ) {
+            ElevatedCard(
                 modifier = Modifier
-                    .padding(paddingValues)
+                    .fillMaxWidth()
+                    .size(width = 240.dp, height = 200.dp)
+                    .padding(20.dp)
             ) {
-
-                Box(
+                Image(
+                    painter = painterResource(id = R.drawable.sanitary),
+                    contentDescription = "",
                     modifier = Modifier
-                        .padding(24.dp)
-                        .fillMaxWidth()
-                        .weight(1F),
-                ) {
-                    Column {
-                        com.example.sisicare.screen.clothes.CardDetails()
-                        Spacer(modifier = Modifier.height(15.dp))
-                        com.example.sisicare.screen.clothes.CardDetails()
-                        Spacer(modifier = Modifier.height(15.dp))
-                        com.example.sisicare.screen.clothes.CardDetails()
-                    }
+                        .fillMaxSize(),
+                    contentScale = ContentScale.FillBounds
+                )
+            }
+
+            Box(
+                modifier = Modifier
+                    .padding(24.dp)
+                    .fillMaxWidth()
+                    .weight(1F),
+            ) {
+                Column {
+                    CardDetails()
+                    Spacer(modifier = Modifier.height(15.dp))
+                    CardDetails()
+
                 }
                 Box(
                     modifier = Modifier
@@ -92,50 +110,51 @@ fun SanitaryScreen(
                     DonateButton()
                 }
             }
+        }
     }
-}
 
-@Composable
-fun DonateButton() {
-    ExtendedFloatingActionButton(
-        onClick = {   },
-        shape = RoundedCornerShape(12.dp),
-        containerColor = Color(0xFFfb8500),
-        elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation(5.dp),
-        modifier = Modifier
-            .padding(vertical = 40.dp)
-
-    ) {
-        Icon(Icons.Filled.Add, "Floating action button.")
-        androidx.compose.material3.Text(text = "ADD")
-    }
-}
-
-@Composable
-fun CardDetails() {
-    ElevatedCard(
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = 6.dp
-        ),
-        modifier = Modifier
-
-    ) {
-        Column(
+    @Composable
+    fun DonateButton() {
+        ExtendedFloatingActionButton(
+            onClick = { },
+            shape = RoundedCornerShape(12.dp),
+            containerColor = Color(0xFFfb8500),
+            elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation(5.dp),
             modifier = Modifier
-                .padding(16.dp),
+                .padding(vertical = 40.dp)
+
         ) {
-            androidx.compose.material3.Text(
-                text = "Name : Valarie Rono",
-                textAlign = TextAlign.Center,
-            )
-            androidx.compose.material3.Text(
-                text = "Location : Annex",
-                textAlign = TextAlign.Center,
-            )
-            androidx.compose.material3.Text(
-                text = "Date : 21/03/2023",
-                textAlign = TextAlign.Center,
-            )
+            Icon(Icons.Filled.Add, "Floating action button.")
+            androidx.compose.material3.Text(text = "ADD")
+        }
+    }
+
+    @Composable
+    fun CardDetails() {
+        ElevatedCard(
+            elevation = CardDefaults.cardElevation(
+                defaultElevation = 6.dp
+            ),
+            modifier = Modifier
+
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(16.dp),
+            ) {
+                androidx.compose.material3.Text(
+                    text = "Name : Valarie Rono",
+                    textAlign = TextAlign.Center,
+                )
+                androidx.compose.material3.Text(
+                    text = "Location : Annex",
+                    textAlign = TextAlign.Center,
+                )
+                androidx.compose.material3.Text(
+                    text = "Date : 21/03/2023",
+                    textAlign = TextAlign.Center,
+                )
+            }
         }
     }
 }

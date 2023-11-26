@@ -75,6 +75,21 @@ fun BookScreen(
                 .padding(horizontal = 20.dp)
                 .padding(paddingValues)
         ) {
+            ElevatedCard(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .size(width = 240.dp, height = 200.dp)
+                    .padding(20.dp)
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.book),
+                    contentDescription = "",
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    contentScale = ContentScale.FillBounds
+                )
+            }
+            Spacer(modifier = Modifier.height(15.dp))
             DonationDisplay()
         }
     }
